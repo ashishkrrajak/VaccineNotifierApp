@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp">
+
+    <TextView
+        android:id="@+id/vaccineDose1"
+        android:layout_width="32dp"
+        android:layout_height="36dp"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/magnitude_circle"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:text="@string/dose1"
+        android:textColor="@android:color/white"
+        android:textSize="16sp" />
+    <TextView
+        android:id="@+id/vaccineDose2"
+        android:layout_width="32dp"
+        android:layout_height="36dp"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/magnitude_circle"
+        android:fontFamily="sans-serif-medium"
+        android:layout_marginStart="2dp"
+        android:gravity="center"
+        android:text="@string/dose2"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:layout_marginLeft="2dp" />
+
+    <TextView
+        android:id="@+id/fees_type"
+        android:layout_marginStart="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:fontFamily="sans-serif-medium"
+        android:layout_gravity="center"
+        android:text="Free"
+        android:textAllCaps="true"
+        android:textColor="#808080"
+        android:textSize="12sp" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginEnd="10dp">
+
+        <TextView
+            android:id="@+id/ageLimit"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:fontFamily="sans-serif-medium"
+            android:maxLines="1"
+            android:text="@string/age"
+            android:textColor="@color/black"
+            android:textSize="12sp" />
+        <TextView
+            android:id="@+id/vaccineLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/location"
+            android:textColor="@color/black"
+            android:textSize="16sp"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/vaccineName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/vaccineName"
+            android:textColor="@color/black"
+            android:textSize="12sp" />
+        <TextView
+            android:id="@+id/vaccineDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:layout_gravity="end"
+            android:text="@string/date"
+            android:textColor="#808080"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+</LinearLayout>
