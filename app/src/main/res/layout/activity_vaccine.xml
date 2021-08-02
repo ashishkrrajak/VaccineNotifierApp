@@ -9,7 +9,8 @@
 
     <ListView
         android:id="@+id/vaccineList"
-        android:padding="5dp"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     </ListView>
@@ -25,15 +26,16 @@
             android:layout_height="264dp"
             android:layout_centerInParent="true"
             app:srcCompat="@drawable/box" />
+
         <TextView
             android:id="@+id/emptyText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/empty_list"
-            android:textSize="36sp"
-            android:textColor="@color/black"
+            android:layout_alignBottom="@id/imageView"
             android:layout_centerInParent="true"
-            android:layout_alignBottom="@id/imageView"/>
+            android:text="@string/empty_list"
+            android:textColor="@color/black"
+            android:textSize="36sp" />
 
     </RelativeLayout>
     <ProgressBar

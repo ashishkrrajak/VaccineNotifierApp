@@ -33,7 +33,7 @@ import java.util.List;
 public class VaccineActivity extends AppCompatActivity {
     ListView vaccineListView;
     ArrayList<Vaccine> vaccineList;
-    String url,type;
+    String url, type;
     VaccineAdapter vaccineAdapter;
     TextView test;
     ProgressBar progressBar;
@@ -50,41 +50,44 @@ public class VaccineActivity extends AppCompatActivity {
         url = intent.getStringExtra("url");
         type = intent.getStringExtra("type");
 
-
-
-        if (type.equals("pin")){
-            vaccineListView = findViewById(R.id.vaccineList);
-            vaccineList = new ArrayList<>();
-            extractVaccines();
-//        vaccineAdapter = new VaccineAdapter(this,  vaccineList);
-//        vaccineListView.setAdapter(vaccineAdapter);
-        }else if (type.equals("district")){
-            progressBar.setVisibility(View.GONE);
-            TextView emptyText = findViewById(R.id.emptyText);
-            ImageView emptyImage = findViewById(R.id.imageView);
-            emptyImage.setImageResource(R.drawable.oops);
-            emptyText.setText("Under Construction");
-            Toast.makeText(this, "Working on It..", Toast.LENGTH_LONG).show();
-            customView.setVisibility(View.VISIBLE);
-        }
-
+        vaccineListView = findViewById(R.id.vaccineList);
+        vaccineList = new ArrayList<>();
+        extractVaccines();
+        vaccineAdapter = new VaccineAdapter(this,  vaccineList);
+        vaccineListView.setAdapter(vaccineAdapter);
+//        if (type.equals("pin")) {
+//            vaccineListView = findViewById(R.id.vaccineList);
+//            vaccineList = new ArrayList<>();
+//            extractVaccines();
+////        vaccineAdapter = new VaccineAdapter(this,  vaccineList);
+////        vaccineListView.setAdapter(vaccineAdapter);
+//        } else if (type.equals("district")) {
+//            progressBar.setVisibility(View.GONE);
+//            TextView emptyText = findViewById(R.id.emptyText);
+//            ImageView emptyImage = findViewById(R.id.imageView);
+//            emptyImage.setImageResource(R.drawable.oops);
+//            emptyText.setText(R.string.underConstruction);
+//            Toast.makeText(this, "Working on It..", Toast.LENGTH_LONG).show();
+//            customView.setVisibility(View.VISIBLE);
+//        }
 
 
     }
 
     private void extractVaccines() {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
+        JsonObjectRequest jsonObjectRequest;
+        jsonObjectRequest = new JsonObjectRequest
                 (Request.Method.GET,
                         url,
                         null,
-                        new Response.Listener<JSONObject>() {
-
-                            @Override
-                            public void onResponse(JSONObject response) {
+                        response -> {
 //                        test.setText("Response: " + response.toString());
-                                try {
-                                    JSONArray centersArray = response.getJSONArray("centers");
+                            try {
+                                JSONArray centersArray = response.getJSONArray("centers");
+                                if (centersArray.length() == 0) {
+                                    customView.setVisibility(View.VISIBLE);
+                                } else {
                                     for (int i = 0; i < centersArray.length(); i++) {
                                         JSONObject currentCenter = centersArray.getJSONObject(i);
                                         String centerName = currentCenter.getString("name");
@@ -98,40 +101,34 @@ public class VaccineActivity extends AppCompatActivity {
                                             int doseOne = currentSession.getInt("available_capacity_dose1");
                                             int doseTwo = currentSession.getInt("available_capacity_dose2");
                                             String date = currentSession.getString("date");
-//                                    if (i == 0 && j==0) {
-//                                        test.setText(centerName + " " + vaccinePrice+" "+allAge+" "+doseOne+" "+vaccineName);
-//                                    }
-                                            vaccineList.add(new Vaccine(doseOne,doseTwo,centerName,date,vaccinePrice,vaccineName,ageLimit,allAge));
+//                                                if (i == 0 && j==0) {
+//                                                    test.setText(centerName + " " + vaccinePrice+" "+allAge+" "+doseOne+" "+vaccineName);
+//                                                }
+                                            vaccineList.add(new Vaccine(doseOne, doseTwo, centerName, date, vaccinePrice, vaccineName, ageLimit, allAge));
                                         }
                                     }
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
                                 }
-                                progressBar.setVisibility(View.GONE);
-//                                Toast.makeText(VaccineActivity.this, "????", Toast.LENGTH_SHORT).show();
-                                vaccineAdapter = new VaccineAdapter(VaccineActivity.this,  vaccineList);
-                                vaccineListView.setAdapter(vaccineAdapter);
-
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                                customView.setVisibility(View.VISIBLE);
                             }
-
+                            progressBar.setVisibility(View.GONE);
+//                                Toast.makeText(VaccineActivity.this, "????", Toast.LENGTH_SHORT).show();
+                            vaccineAdapter = new VaccineAdapter(VaccineActivity.this, vaccineList);
+                            vaccineListView.setAdapter(vaccineAdapter);
 
                         },
-                        new Response.ErrorListener() {
+                        error -> {
+                            Log.d("no Internet", "onErrorResponse: " + error.getMessage());
+                            progressBar.setVisibility(View.GONE);
+                            TextView noInternetText = findViewById(R.id.emptyText);
+                            noInternetText.setText(R.string.noInternet);
+                            customView.setVisibility(View.VISIBLE);
 
-                            @Override
-                            public void onErrorResponse(VolleyError error) {
-                                Log.d("no Internet","onErrorResponse: "+error.getMessage());
-                                progressBar.setVisibility(View.GONE);
-                                TextView noInternetText = findViewById(R.id.emptyText);
-                                noInternetText.setText(R.string.noInternet);
-                                customView.setVisibility(View.VISIBLE);
-
-                            }
                         });
         requestQueue.add(jsonObjectRequest);
 
 
     }
-
 
 }

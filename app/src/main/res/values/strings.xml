@@ -19,6 +19,16 @@
     <string name="noInternet">No Internet!</string>
     <string name="find_by_pin">Find By PinCode</string>
     <string name="find_by_district">Find By District</string>
+    <string name="free">Free</string>
+    <string name="doseTwo">Dose2</string>
+    <string name="doseOne">Dose1</string>
+    <string name="underConstruction">Under Construction!</string>
+    <string name="select_state">Select Your State!</string>
+    <string name="select_district">Select Your District!</string>
+    <string name="error_try_again">Error Try again!</string>
+    <string name="object_error">DistrictObject Error!</string>
+    <string name="enter_pinCode">Please Enter PinCode!</string>
+    <string name="enter_correct_pinCode">Please Enter Correct PinCode!</string>
 
     <string-array name="states">
         <item>Select Your State</item>

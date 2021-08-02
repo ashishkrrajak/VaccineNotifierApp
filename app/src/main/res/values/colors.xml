@@ -14,4 +14,8 @@
     <color name="customAppBar">#C6F44336</color>
     <color name="shadow">#F44336</color>
     <color name="free">#00FF00</color>
+    <color name="paid">#0000FF</color>
+    <color name="available">#399707</color>
+    <color name="lessAvailable">#974507</color>
+    <color name="notAvailable">#A11F15</color>
 </resources>
