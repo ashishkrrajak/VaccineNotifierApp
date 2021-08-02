@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:contentDescription="@string/todo"
@@ -21,82 +21,66 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
+        android:layout_marginBottom="30dp"
         android:fontFamily="sans-serif-condensed-medium"
         android:text="@string/text"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="24sp" />
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
         android:gravity="center">
 
-        <TextView
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/mSwitch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-condensed-medium"
-            android:text="@string/state"
-            android:textColor="@color/black"
-            android:textSize="24sp" />
+            android:background="@null"
+            android:thumb="@drawable/thumb"
+            app:track="@drawable/track" />
 
-        <Spinner
-            android:id="@+id/stateSpinner"
+        <LinearLayout
+            android:id="@+id/linearLayout"
             android:layout_width="wrap_content"
+            android:paddingStart="10dp"
+            android:paddingEnd="1dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginStart="30dp" />
+            android:layout_centerVertical="true"
+            android:layout_alignStart="@id/mSwitch"
+            android:orientation="horizontal">
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/find_by_pin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center_vertical"
+                android:paddingStart="0dp"
+                android:paddingEnd="8dp"
+                android:text="@string/find_by_pin"
+                android:textColor="@color/white" />
 
-    <LinearLayout
+            <TextView
+                android:id="@+id/find_by_dist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:layout_gravity="center"
+                android:paddingStart="12dp"
+                android:paddingEnd="0dp"
+                android:text="@string/find_by_district"
+                android:textColor="@color/white" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/frame_layout"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="15dp"
-        android:gravity="center">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="sans-serif-condensed-medium"
-            android:text="@string/district"
-            android:textColor="@color/black"
-            android:textSize="24sp" />
-
-        <Spinner
-            android:id="@+id/districtSpinner"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginStart="10dp" />
-
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/orText"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:fontFamily="monospace"
-        android:text="@string/or"
-        android:textAllCaps="true"
-        android:textColor="@color/black"
-        android:textSize="24sp" />
+        android:layout_marginTop="20dp">
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:gravity="center"
-        android:hint="@string/enterPin"
-        android:importantForAutofill="no"
-        android:inputType="number"
-        android:maxLength="6"
-        android:textSize="24sp" />
+    </FrameLayout>
 
     <Button
         android:id="@+id/findButton"

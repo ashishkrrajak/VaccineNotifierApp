@@ -17,6 +17,8 @@
     <string name="text">Find Vaccine</string>
     <string name="empty_list">Empty List!</string>
     <string name="noInternet">No Internet!</string>
+    <string name="find_by_pin">Find By PinCode</string>
+    <string name="find_by_district">Find By District</string>
 
     <string-array name="states">
         <item>Select Your State</item>
