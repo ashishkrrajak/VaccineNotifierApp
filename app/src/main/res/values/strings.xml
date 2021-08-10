@@ -1,9 +1,9 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Vaccine Notifier</string>
     <string name="or">or</string>
     <string name="find">Find</string>
-    <string name="state">State:</string>
-    <string name="district">District:</string>
+    <string name="state">State</string>
+    <string name="district">District</string>
     <string name="enterPin">Enter Pincode</string>
     <string name="dose1">0</string>
     <string name="dose2">0</string>
@@ -21,7 +21,7 @@
     <string name="find_by_district">Find By District</string>
     <string name="free">Free</string>
     <string name="doseTwo">Dose2</string>
-    <string name="doseOne">Dose1</string>
+    <string name="doseOne" tools:ignore="Typos">Dose1</string>
     <string name="underConstruction">Under Construction!</string>
     <string name="select_state">Select Your State!</string>
     <string name="select_district">Select Your District!</string>

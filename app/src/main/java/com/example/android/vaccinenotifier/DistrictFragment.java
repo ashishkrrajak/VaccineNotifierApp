@@ -304,6 +304,8 @@ public class DistrictFragment extends Fragment {
                                 } else {
                                     Toast.makeText(getContext(), R.string.object_error, Toast.LENGTH_SHORT).show();
                                 }
+                            }else {
+                                districtId=-1;
                             }
                         }
 
@@ -389,6 +391,7 @@ public class DistrictFragment extends Fragment {
                             @Override
                             public void onErrorResponse(VolleyError error) {
                                 Log.d("no Internet", "onErrorResponse: " + error.getMessage());
+                                Toast.makeText(getContext(), "Internet Problem!", Toast.LENGTH_SHORT).show();
                                 progressBar.setVisibility(View.GONE);
                             }
                         });

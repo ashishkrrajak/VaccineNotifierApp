@@ -1,86 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:contentDescription="@string/todo"
-        android:src="@drawable/icon" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="30dp"
-        android:fontFamily="sans-serif-condensed-medium"
-        android:text="@string/text"
-        android:textColor="@color/white"
-        android:textSize="24sp" />
-
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center">
+        android:orientation="vertical">
 
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/mSwitch"
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/icon" />
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@null"
-            android:thumb="@drawable/thumb"
-            app:track="@drawable/track" />
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="30dp"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:text="@string/text"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
 
-        <LinearLayout
-            android:id="@+id/linearLayout"
+        <RelativeLayout
             android:layout_width="wrap_content"
-            android:paddingStart="10dp"
-            android:paddingEnd="1dp"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_alignStart="@id/mSwitch"
-            android:orientation="horizontal">
+            android:layout_gravity="center">
 
-            <TextView
-                android:id="@+id/find_by_pin"
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/mSwitch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-medium"
-                android:gravity="center_vertical"
-                android:paddingStart="0dp"
-                android:paddingEnd="8dp"
-                android:text="@string/find_by_pin"
-                android:textColor="@color/white" />
+                android:background="@null"
+                android:thumb="@drawable/thumb"
+                app:track="@drawable/track" />
 
-            <TextView
-                android:id="@+id/find_by_dist"
+            <LinearLayout
+                android:id="@+id/linearLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-medium"
-                android:layout_gravity="center"
-                android:paddingStart="12dp"
-                android:paddingEnd="0dp"
-                android:text="@string/find_by_district"
-                android:textColor="@color/white" />
-        </LinearLayout>
-    </RelativeLayout>
+                android:layout_alignStart="@id/mSwitch"
+                android:layout_centerVertical="true"
+                android:orientation="horizontal"
+                android:paddingStart="10dp"
+                android:paddingEnd="1dp">
 
-    <FrameLayout
-        android:id="@+id/frame_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp">
+                <TextView
+                    android:id="@+id/find_by_pin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:gravity="center_vertical"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="8dp"
+                    android:text="@string/find_by_pin"
+                    android:textColor="@color/white" />
 
-    </FrameLayout>
+                <TextView
+                    android:id="@+id/find_by_dist"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="sans-serif-medium"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="0dp"
+                    android:text="@string/find_by_district"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <FrameLayout
+            android:id="@+id/frame_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+        </FrameLayout>
 
 
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>
